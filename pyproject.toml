@@ -1,0 +1,17 @@
+[project]
+name = "hexlet-code"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "black>=24.10.0",
+    "pytest>=8.3.4",
+    "ruff>=0.9.1",
+]
+
+[proeect.scripts]
+gendiff = "python-project-50.gendiff.scripts.gendiff:main"
