@@ -17,5 +17,8 @@ check: test lint
 
 build:
 	uv build
-
-.PHONY: install test lint selfcheck check build
+	
+package-install:
+	uv tool install dist/*.whl
+	
+.PHONY: install run test lint test-coverage check build package-install
