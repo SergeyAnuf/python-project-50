@@ -15,8 +15,5 @@ def generate_dif(file_1_dict, file_2_dict):
     for key, value in file_2_dict.items():
         if key not in file_1_dict:
             diff = diff + f'+ {key}: {value}\n'
-
     return diff
-    
 file_1_dict, file_2_dict = parser_file()
-#generate_dif(file_1_dict, file_2_dict)
