@@ -1,5 +1,6 @@
 import json
 
+
 def parser_file(file1_path, file2_path):
     try:
         with open(file1_path) as f1, open(file2_path) as f2:
