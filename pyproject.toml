@@ -4,13 +4,16 @@ version = "0.1.0"
 description = "Python-project-50"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pyyaml>=6.0.2",
+]
 
 [dependency-groups]
 dev = [
     "black>=24.10.0",
     "pytest>=8.3.4",
     "ruff>=0.9.1",
+    "PyYAML>=6.0.1"
 ]
 
 [project.scripts]
