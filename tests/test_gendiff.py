@@ -6,7 +6,7 @@ import yaml
 def test_gendif_json():
     file1_path = 'tests/fixtures/file1.json'
     file2_path = 'tests/fixtures/file2.json'
-    result = '- follow: false\n  host: hexlet.io\n- proxy: 123.234.53.22\n- timeout: 50\n'
+    result = '- follow: False\n  host: hexlet.io\n- proxy: 123.234.53.22\n- timeout: 50\n'
     '+ timeout: 20\n+ verbose: true\n'
     with open(file1_path) as f1, open(file2_path) as f2:
             file_1_dict = json.load(f1)
