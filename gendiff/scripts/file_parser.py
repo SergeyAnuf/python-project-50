@@ -1,5 +1,7 @@
 import json
+
 import yaml
+
 
 def parser_file(file1_path, file2_path):
     try:
