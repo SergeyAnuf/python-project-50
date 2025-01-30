@@ -1,6 +1,7 @@
 import json
 import yaml
-from gendiff.scripts.generate_diff import generate_dif
+from scripts.generate_diff import generate_dif
+
 
 def test_gendif_json():
     file1_path = 'tests/fixtures/file1.json'
