@@ -1,7 +1,5 @@
 import json
-
 import yaml
-
 from gendiff.scripts.generate_diff import generate_dif
 
 
