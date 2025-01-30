@@ -1,4 +1,4 @@
-from dendiff.scripts.generate_diff import generate_dif
+from gendiff.scripts.generate_diff import generate_dif
 import json
 import yaml
 
