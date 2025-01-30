@@ -1,6 +1,6 @@
+from dendiff.scripts.generate_diff import generate_dif
 import json
 import yaml
-from scripts.generate_diff import generate_dif
 
 
 def test_gendif_json():
