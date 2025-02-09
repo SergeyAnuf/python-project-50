@@ -3,35 +3,35 @@ from generate_diff1 import generate_dif
 diff = generate_dif()
 
 def format_diff(diff, depth=0):
-    indent = ' ' * (4 * depth)
-    result = '{\n'
-    for key, value in diff.items():
-        action = value.get('action')
+    indent = "  " * depth
+    result = []
+    
+    for key, value in sorted(diff.items()):
+        action = value.get("action")
+        
+        if action == "nested":
+            result.append(f"{indent}{key}: {{")
+            result.append(format_diff(value["children"], depth + 1))
+            result.append(f"{indent}}}")
+        elif action == "unchange":
+            result.append(f"{indent}  {key}: {format_value(value['value'], depth + 1)}")
+        elif action == "add":
+            result.append(f"{indent}+ {key}: {format_value(value['value'], depth + 1)}")
+        elif action == "remove":
+            result.append(f"{indent}- {key}: {format_value(value['value'], depth + 1)}")
+        elif action == "change":
+            result.append(f"{indent}- {key}: {format_value(value['old_value'], depth + 1)}")
+            result.append(f"{indent}+ {key}: {format_value(value['new_value'], depth + 1)}")
+    
+    return "\n".join(result)
 
-        # ?????????? ??????? ??? ???????? ??????
-        current_indent = ' ' * (4 * (depth + 1))
-
-        if action == 'nested':
-            # ?????????? ???????????? ????????? ????????
-            nested_diff = format_diff(value['children'], depth + 1)
-            result += f'{current_indent}{key}: {nested_diff}\n'
-
-        elif action == 'unchange':
-            result += f'{current_indent}{key}: {value["value"]}\n'
-
-        elif action == 'change':
-            result += f'{current_indent}- {key}: {value["old_value"]}\n'
-            result += f'{current_indent}+ {key}: {value["new_value"]}\n'
-
-        elif action == 'add':
-            result += f'{current_indent}+ {key}: {value["value"]}\n'
-
-        elif action == 'remove':
-            result += f'{current_indent}- {key}: {value["value"]}\n'
-
-    result += f'{indent}}}'
-    return result
-
-# ??????? ????????????????? diff
-formatted_diff = format_diff(diff)
-print(formatted_diff)
+def format_value(value, depth):
+    indent = "  " * depth
+    if isinstance(value, dict):
+        formatted = "{\n" + "\n".join(f"{indent}  {k}: {format_value(v, depth + 1)}" for k, v in value.items()) + f"\n{indent}}}"
+        return formatted
+    if value is None:
+        return "null"
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    return str(value)
