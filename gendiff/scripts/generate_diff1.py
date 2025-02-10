@@ -1,13 +1,13 @@
 import json
-from gendiff.formaters.stylish import format_diff
+
 
 def generate_dif(file_1_dict, file_2_dict):
     diff = {}
     for key, value in file_2_dict.items():
         if key in file_1_dict:
             if isinstance(value, dict):
-                children1 = file_2_dict[key]
-                children2 = file_1_dict[key]
+                children1 = file_1_dict[key]
+                children2 = file_2_dict[key]
                 diff[key] = {'action': 'nested', 'children': generate_dif(children1, children2)}
             else:
                 if file_2_dict[key] == file_1_dict[key]:
@@ -22,5 +22,5 @@ def generate_dif(file_1_dict, file_2_dict):
 
     return diff
 
-result = format_diff(diff, depth = 0)
+
 
