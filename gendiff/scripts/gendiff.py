@@ -28,7 +28,7 @@ def main():
     diff = generate_dif(file_1_dict, file_2_dict)
     
     # Форматируем разницу
-    result = format_diff(diff, depth=0)
+    result = format_diff(diff, depth=0, format_name='stylish')
 
     # Выводим результат
     print(result)

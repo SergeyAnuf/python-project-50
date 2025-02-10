@@ -1,4 +1,5 @@
 import json
+from gendiff.formaters.stylish import format_diff
 
 def generate_dif(file_1_dict, file_2_dict):
     diff = {}
@@ -20,3 +21,6 @@ def generate_dif(file_1_dict, file_2_dict):
             diff[key] = {'action': 'remove', 'value': value}
 
     return diff
+
+result = format_diff(diff, depth = 0)
+
