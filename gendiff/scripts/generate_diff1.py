@@ -1,4 +1,3 @@
-import json
 
 
 def generate_dif(file_1_dict, file_2_dict):

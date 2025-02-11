@@ -1,8 +1,8 @@
 import argparse
 
+from gendiff.formaters.stylish import format_diff
 from gendiff.scripts.file_parser import parser_file
 from gendiff.scripts.generate_diff1 import generate_dif
-from gendiff.formaters.stylish import format_diff
 
 
 def main():
@@ -16,7 +16,7 @@ def main():
     parser.add_argument("second_file", help="Второй файл для сравнения")
 
     # Опциональный аргумент для формата вывода (необязательный)
-    parser.add_argument("-f", "--format", help="Формат вывода",  default="plain")
+    parser.add_argument("-f", "--format", help="Формат вывода", default="plain")
 
     # Разбираем аргументы
     args = parser.parse_args()

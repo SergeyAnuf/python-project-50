@@ -1,4 +1,4 @@
-#from gendiff.scripts.generate_diff1 import generate_dif
+# from gendiff.scripts.generate_diff1 import generate_dif
 
 
 def format_diff(diff, depth=0, format_name='stylish'):
@@ -24,6 +24,7 @@ def format_diff(diff, depth=0, format_name='stylish'):
                 result.append(f"{indent}+ {key}: {format_value(value['new_value'], depth + 1)}")
         
         return "\n".join(result)
+
 
 def format_value(value, depth):
     indent = "  " * depth
