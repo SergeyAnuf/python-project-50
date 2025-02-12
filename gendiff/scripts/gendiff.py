@@ -3,6 +3,7 @@ import argparse
 from gendiff.formaters.stylish import format_diff
 from gendiff.scripts.file_parser import parser_file
 from gendiff.scripts.generate_diff1 import generate_dif
+from gendiff.formaters.formater_plain import process_changes
 
 
 def main():
@@ -16,7 +17,7 @@ def main():
     parser.add_argument("second_file", help="Второй файл для сравнения")
 
     # Опциональный аргумент для формата вывода (необязательный)
-    parser.add_argument("-f", "--format", help="Формат вывода", default="plain")
+    parser.add_argument("-f", "--format", help="Формат вывода", default="stylish" , choices=['stylish', 'plain'])
 
     # Разбираем аргументы
     args = parser.parse_args()
@@ -28,10 +29,14 @@ def main():
     diff = generate_dif(file_1_dict, file_2_dict)
     
     # Форматируем разницу
-    result = format_diff(diff, depth=0, format_name='stylish')
-
-    # Выводим результат
-    print(result)
+    if args.format == 'plain':
+        result = process_changes(diff)
+        for line in result:
+            print(line)
+    else:
+        result = format_diff(diff)
+        print(result)   
+    
 
 
 if __name__ == "__main__":

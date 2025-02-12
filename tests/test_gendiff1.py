@@ -26,8 +26,8 @@ def test_gendif1_yaml():
     with open(file_result_path, 'r') as f5:
         result = f5.read()
     with open(file3_path) as f3, open(file4_path) as f4:
-        file_1_dict = yaml.safe_load(f1)
-        file_2_dict = yaml.safe_load(f2)
+        file_1_dict = yaml.safe_load(f3)
+        file_2_dict = yaml.safe_load(f4)
     diff = generate_dif(file_1_dict, file_2_dict)
 
     assert diff == result
