@@ -23,7 +23,7 @@ elif args.format == 'json':
     
     file_result_path = 'tests/fixtures/result_test.json'
     with open(file_result_path, 'r') as f:
-        
+        result_test = f.read()
 
 else:
     result = format_diff(diff)
