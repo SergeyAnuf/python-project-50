@@ -19,8 +19,8 @@ if args.format == 'plain':
         result_test = f5.read()
         
 elif args.format == 'json':
-        transformed_diff = transform_diff(diff)
-        result = json.dumps(transformed_diff, indent = 4)
+    transformed_diff = transform_diff(diff)
+    result = json.dumps(transformed_diff, indent = 4)
     file_result_path = 'tests/fixtures/result_test.json'
     with open(file_result_path, 'r') as f:
         result_test = f.read()
