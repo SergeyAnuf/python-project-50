@@ -1,4 +1,5 @@
 import argparse
+import json
 
 from gendiff.formaters.stylish import format_diff
 from gendiff.scripts.file_parser import parser_file
@@ -18,7 +19,7 @@ def main():
     parser.add_argument("second_file", help="Второй файл для сравнения")
 
     # Опциональный аргумент для формата вывода (необязательный)
-    parser.add_argument("-f", "--format", help="Формат вывода", default="stylish" , choices=['stylish', 'plain'])
+    parser.add_argument("-f", "--format", help="Формат вывода", default="stylish" , choices=['stylish', 'plain', 'json'])
 
     # Разбираем аргументы
     args = parser.parse_args()
@@ -35,7 +36,9 @@ def main():
         for line in result:
             print(line)
     elif args.format == 'json':
-        result = transform_diff(diff)
+        transformed_diff = transform_diff(diff)
+        print(json.dumps(transformed_diff, indent = 4))
+
     else:
         result = format_diff(diff)
         print(result)   
