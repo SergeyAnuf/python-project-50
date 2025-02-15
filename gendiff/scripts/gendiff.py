@@ -4,6 +4,7 @@ from gendiff.formaters.stylish import format_diff
 from gendiff.scripts.file_parser import parser_file
 from gendiff.scripts.generate_diff1 import generate_dif
 from gendiff.formaters.formater_plain import process_changes
+from gendiff.formaters.formater_json import transform_diff
 
 
 def main():
@@ -33,6 +34,8 @@ def main():
         result = process_changes(diff)
         for line in result:
             print(line)
+    elif args.format == 'json':
+        result = transform_diff(diff)
     else:
         result = format_diff(diff)
         print(result)   

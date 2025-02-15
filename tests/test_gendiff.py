@@ -1,8 +1,10 @@
+import argparse
 
 from gendiff.formaters.stylish import format_diff
 from gendiff.scripts.file_parser import parser_file
 from gendiff.scripts.generate_diff1 import generate_dif
 from gendiff.formaters.formater_plain import process_changes
+from gendiff.formaters.formater_json import transform_diff
 
     # Загружаем файлы
 file_1_dict, file_2_dict = parser_file(args.first_file, args.second_file)
@@ -15,6 +17,13 @@ if args.format == 'plain':
     file_result_path = 'tests/fixtures/file_result_plain.txt'
     with open(file_result_path, 'r') as f5:
         result_test = f5.read()
+        
+elif args.format == 'json':
+    result = transform_diff(diff)
+    
+    file_result_path = 'tests/fixtures/result_test.json'
+    with open(file_result_path, 'r') as f:
+        
 
 else:
     result = format_diff(diff)
