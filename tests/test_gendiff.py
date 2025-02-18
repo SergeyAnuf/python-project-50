@@ -7,7 +7,7 @@ from gendiff.formaters.formater_plain import process_changes
 from gendiff.formaters.formater_json import transform_diff
 
     # Загружаем файлы
-file_1_dict, file_2_dict = parser_file(args.first_file, args.second_file)
+file_1_dict, file_2_dict = parser_file()
 # Генерируем разницу
 diff = generate_dif(file_1_dict, file_2_dict)
     
