@@ -9,7 +9,7 @@ from gendiff.scripts.gendiff import main
 
 file1_path = 'tests/fixtures/file3.json'
 file2_path = 'tests/fixtures/file4.json'
-with open(file1_path, 'w') as f1, open(file2_path, 'w') as f2:
+with open(file1_path, 'r') as f1, open(file2_path, 'r') as f2:
     file1 = f1.read()
     file2 = f2.read()
     file_1_dict, file_2_dict = parser_file(file1, file2)
