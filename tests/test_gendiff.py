@@ -9,8 +9,10 @@ from gendiff.scripts.gendiff import main
 
 file1_path = 'tests/fixtures/file3.json'
 file2_path = 'tests/fixtures/file4.json'
-with open(file1_path, 'w') as first_file, open(file2_path, 'w') as second_file:
-    file_1_dict, file_2_dict = parser_file(first_file.read(), second_file.read())
+with open(file1_path, 'w') as f1, open(file2_path, 'w') as f2:
+    file1 = f1.read()
+    file2 = f2.read()
+    file_1_dict, file_2_dict = parser_file(file1, file2)
 
 diff = generate_dif(file_1_dict, file_2_dict)
     
