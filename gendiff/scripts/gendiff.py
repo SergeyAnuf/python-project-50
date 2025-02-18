@@ -36,8 +36,8 @@ def main():
         for line in result:
             print(line)
     elif args.format == 'json':
-        transformed_diff = transform_diff(diff)
-        print(json.dumps(transformed_diff, indent = 4))
+        result = transform_diff(diff)
+        print(json.dumps(result, indent = 4))
 
     else:
         result = format_diff(diff)
