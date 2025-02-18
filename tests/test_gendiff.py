@@ -5,7 +5,7 @@ from gendiff.scripts.file_parser import parser_file
 from gendiff.scripts.generate_diff1 import generate_dif
 from gendiff.formaters.formater_plain import process_changes
 from gendiff.formaters.formater_json import transform_diff
-from gendiff.scripts.gendiff import gendiff
+from gendiff.scripts.gendiff import main
 
 file_1_dict, file_2_dict = parser_file(args.first_file, args.second_file)
 
