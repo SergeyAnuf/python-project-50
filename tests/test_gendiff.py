@@ -6,10 +6,16 @@ from gendiff.scripts.generate_diff1 import generate_dif
 from gendiff.formaters.formater_plain import process_changes
 from gendiff.formaters.formater_json import transform_diff
 
+parser.add_argument("-f", "--format", help="Формат вывода", default="stylish" , choices=['stylish', 'plain', 'json'])
+
+    # Разбираем аргументы
+    args = parser.parse_args()
+
     # Загружаем файлы
-file_1_dict, file_2_dict = parser_file(file1_path, file2_path)
-# Генерируем разницу
-diff = generate_dif(file_1_dict, file_2_dict)
+    file_1_dict, file_2_dict = parser_file(args.first_file, args.second_file)
+
+    # Генерируем разницу
+    diff = generate_dif(file_1_dict, file_2_dict)
     
     # Форматируем разницу
 if args.format == 'plain':
