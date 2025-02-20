@@ -9,7 +9,7 @@ def test_gendiff():
       "common": {
         "setting1": "Value 1",
         "setting2": 200,
-        "setting3": true,
+        "setting3": True,
         "setting6": {
           "key": "value",
           "doge": {
@@ -36,7 +36,7 @@ def test_gendiff():
       "common": {
         "setting1": "Value 1",
         "setting2": 200,
-        "setting3": true,
+        "setting3": True,
         "setting6": {
           "key": "value",
           "doge": {
