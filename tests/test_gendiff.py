@@ -19,7 +19,7 @@ def parse_args():
 
 def test_gendiff():
     # Mock file content for testing
-    file1_content = '''
+    file1_dict = 
     {
       "common": {
         "setting1": "Value 1",
@@ -46,38 +46,36 @@ def test_gendiff():
         }
       }
     }
-    '''
-    file2_content = '''
-    {
-      "common": {
-        "setting1": "Value 1",
-        "setting2": 200,
-        "setting3": true,
-        "setting6": {
-          "key": "value",
-          "doge": {
-            "wow": ""
-          }
-        }
-      },
-      "group1": {
-        "baz": "bas",
-        "foo": "bar",
-        "nest": {
-          "key": "value"
-        }
-      },
-      "group2": {
-        "abc": 12345,
-        "deep": {
-          "id": 45
-        }
-      }
-    }
-    '''
 
-    # Parse file content into dictionaries
-    file_1_dict, file_2_dict = parser_file(file1_content, file2_content)
+    file2_dict = 
+    {
+      "common": {
+        "setting1": "Value 1",
+        "setting2": 200,
+        "setting3": true,
+        "setting6": {
+          "key": "value",
+          "doge": {
+            "wow": ""
+          }
+        }
+      },
+      "group1": {
+        "baz": "bas",
+        "foo": "bar",
+        "nest": {
+          "key": "value"
+        }
+      },
+      "group2": {
+        "abc": 12345,
+        "deep": {
+          "id": 45
+        }
+      }
+    }
+    
+
 
     # Generate diff
     diff = generate_dif(file_1_dict, file_2_dict)
