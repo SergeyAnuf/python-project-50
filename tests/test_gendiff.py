@@ -5,7 +5,7 @@ from gendiff.formaters.formater_plain import process_changes
 from gendiff.formaters.formater_json import transform_diff
 
 def test_gendiff():
-    file1_dict = {
+    file_1_dict = {
       "common": {
         "setting1": "Value 1",
         "setting2": 200,
@@ -32,7 +32,7 @@ def test_gendiff():
       }
     }
 
-    file2_dict = {
+    file_2_dict = {
       "common": {
         "setting1": "Value 1",
         "setting2": 200,
