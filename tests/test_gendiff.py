@@ -19,8 +19,7 @@ def parse_args():
 
 def test_gendiff():
     # Mock file content for testing
-    file1_dict = 
-    {
+    file1_dict = {
       "common": {
         "setting1": "Value 1",
         "setting2": 200,
@@ -47,8 +46,7 @@ def test_gendiff():
       }
     }
 
-    file2_dict = 
-    {
+    file2_dict = {
       "common": {
         "setting1": "Value 1",
         "setting2": 200,
