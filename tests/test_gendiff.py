@@ -73,7 +73,7 @@ def test_gendiff():
     with open(file_result, 'r') as f1:
         result1 = f1.read()
     
-    file_result_plain = 'file_result_plain.txt'
+    file_result_plain = '/home/sergey/python-project-50/tests/fixtures/file_result_plain.txt'
     with open(file_result_plain, 'r') as f2:
         result2 = f2.read()
         
