@@ -73,11 +73,11 @@ def test_gendiff():
     with open(file_result, 'r') as f1:
         result1 = f1.read()
     
-    file_result_plain = '/home/sergey/python-project-50/tests/fixtures/file_result_plain.txt'
+    file_result_plain = 'tests/fixtures/file_result_plain.txt'
     with open(file_result_plain, 'r') as f2:
         result2 = f2.read()
         
-    file_result_json = 'result_test_json.txt'
+    file_result_json = 'tests/fixtures/result_test_json.txt'
     with open(file_result_json, 'r') as f3:
         result3 = f3.read()
 

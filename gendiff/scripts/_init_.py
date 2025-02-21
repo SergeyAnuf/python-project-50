@@ -4,6 +4,7 @@ _all_ = (
     'generate_dif',
     'format_diff'
     'main',
+    '
 )
 
 
