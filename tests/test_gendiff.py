@@ -1,4 +1,5 @@
 import pytest
+import json
 from gendiff.scripts.generate_diff1 import generate_dif
 from gendiff.formaters.stylish import format_diff
 from gendiff.formaters.formater_plain import process_changes
