@@ -70,8 +70,17 @@ def test_gendiff():
     result_json = transform_diff(diff)
     
     file_result = '/home/sergey/python-project-50/tests/fixtures/file_result.txt'
+    with open(file_result, 'r') as f1:
+        result1 = f1.read()
     
-    # Add assertions here
-    assert isinstance(result_stylish, str)
-    assert isinstance(result_plain, str)
-    assert isinstance(result_json, str)
+    file_result_plain = '/home/sergey/python-project-50/tests/fixtures/file_result_plain.txt'
+    with open(file_result, 'r') as f2:
+        result2 = f2.read()
+        
+    file_result3 = '/home/sergey/python-project-50/tests/fixtures/result_test_json.txt'
+    with open(file_result, 'r') as f3:
+        result3 = f3.read()
+
+    assert result_stylish == result1
+    assert result_plain == result2
+    assert result_json == result3
