@@ -68,7 +68,9 @@ def test_gendiff():
     result_stylish = format_diff(diff)
     result_plain = process_changes(diff)
     result_json = transform_diff(diff)
-
+    
+    file_result = '/home/sergey/python-project-50/tests/fixtures/file_result.txt'
+    
     # Add assertions here
     assert isinstance(result_stylish, str)
     assert isinstance(result_plain, str)

@@ -1,2 +1,106 @@
-{'common': ['nested', {'follow': ['added', False], 'setting1': ['unchanged', 'Value 1'], 'setting3': ['changed', [True, None]], 'setting4': ['added', 'blah blah'], 'setting5': ['added', {'key5': 'value5'}], 'setting6': ['nested', {'key': ['unchanged', 'value'], 'ops': ['added', 'vops'], 'doge': ['nested', {'wow': ['changed', ['', 'so much']]}]}], 'setting2': ['removed', 200]}], 'group1': ['nested', {'foo': ['unchanged', 'bar'], 'baz': ['changed', ['bas', 'bars']], 'nest': ['changed', [{'key': 'value'}, 'str']]}], 'group3': ['added', {'deep': {'id': {'number': 45}}, 'fee': 100500}], 'group2': ['removed', {'abc': 12345, 'deep': {'id': 45}}]}
-
+{
+    "common": [
+        "nested",
+        {
+            "follow": [
+                "added",
+                false
+            ],
+            "setting1": [
+                "unchanged",
+                "Value 1"
+            ],
+            "setting3": [
+                "changed",
+                [
+                    true,
+                    null
+                ]
+            ],
+            "setting4": [
+                "added",
+                "blah blah"
+            ],
+            "setting5": [
+                "added",
+                {
+                    "key5": "value5"
+                }
+            ],
+            "setting6": [
+                "nested",
+                {
+                    "key": [
+                        "unchanged",
+                        "value"
+                    ],
+                    "ops": [
+                        "added",
+                        "vops"
+                    ],
+                    "doge": [
+                        "nested",
+                        {
+                            "wow": [
+                                "changed",
+                                [
+                                    "",
+                                    "so much"
+                                ]
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "setting2": [
+                "removed",
+                200
+            ]
+        }
+    ],
+    "group1": [
+        "nested",
+        {
+            "foo": [
+                "unchanged",
+                "bar"
+            ],
+            "baz": [
+                "changed",
+                [
+                    "bas",
+                    "bars"
+                ]
+            ],
+            "nest": [
+                "changed",
+                [
+                    {
+                        "key": "value"
+                    },
+                    "str"
+                ]
+            ]
+        }
+    ],
+    "group3": [
+        "added",
+        {
+            "deep": {
+                "id": {
+                    "number": 45
+                }
+            },
+            "fee": 100500
+        }
+    ],
+    "group2": [
+        "removed",
+        {
+            "abc": 12345,
+            "deep": {
+                "id": 45
+            }
+        }
+    ]
+}
