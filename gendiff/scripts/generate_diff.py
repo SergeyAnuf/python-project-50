@@ -1,6 +1,6 @@
 
 
-def generate_dif(file_1_dict, file_2_dict):
+def generate_diff(file_1_dict, file_2_dict):
     diff = {}
     for key, value in file_2_dict.items():
         if key in file_1_dict:
