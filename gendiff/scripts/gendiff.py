@@ -19,7 +19,12 @@ def main():
     parser.add_argument("second_file", help="Второй файл для сравнения")
 
     # Опциональный аргумент для формата вывода (необязательный)
-    parser.add_argument("-f", "--format", help="Формат вывода", default="stylish", choices=['stylish', 'plain', 'json'])
+    parser.add_argument(
+        "-f", "--format",
+        help="Формат вывода",
+        default="stylish", 
+        choices=['stylish', 'plain', 'json']
+    )
 
     # Разбираем аргументы
     args = parser.parse_args()
