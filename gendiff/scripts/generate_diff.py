@@ -9,7 +9,7 @@ def generate_diff(file_1_dict, file_2_dict):
                 children2 = file_2_dict[key]
                 diff[key] = {
                     'action': 'nested',
-                    'children': generate_dif(children1, children2)
+                    'children': generate_diff(children1, children2)
                 }
             else:
                 if file_2_dict[key] == file_1_dict[key]:
