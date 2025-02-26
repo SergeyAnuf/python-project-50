@@ -27,7 +27,8 @@ def process_changes(diff, parent_key=""):
         elif action == "change":
             old_value = format_value(values["old_value"])
             new_value = format_value(values["new_value"])
-            output.append(f"Property '{current_key}' was updated. From {old_value} to {new_value}")
+            output.append(f"Property '{current_key}' was updated. "
+            f"From {old_value} to {new_value}")
         elif action == "unchange":
             value = format_value(values["value"])
             output.append(f"Property '{current_key}' unchange. Was value: {value}")
