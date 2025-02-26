@@ -1,5 +1,6 @@
 import json
 
+
 def transform_diff(diff):
     """
     Рекурсивно преобразует diff в нужный формат.
@@ -23,6 +24,7 @@ def transform_diff(diff):
             # Для изменённых значений
             result[key] = ['changed', [value['old_value'], value['new_value']]]
     return result
+
 
 def save_diff_to_json(diff, output_file):
     """

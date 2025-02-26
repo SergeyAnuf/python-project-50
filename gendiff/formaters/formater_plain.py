@@ -9,6 +9,7 @@ def format_value(value):
     else:
         return str(value)
 
+
 def process_changes(diff, parent_key=""):
     """Recursively process the changes and generate the output."""
     output = []
@@ -30,6 +31,7 @@ def process_changes(diff, parent_key=""):
         elif action == "unchange":
             value = format_value(values["value"])
             output.append(f"Property '{current_key}' unchange. Was value: {value}")
+    
     return output
 
 

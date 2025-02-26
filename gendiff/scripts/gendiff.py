@@ -1,11 +1,11 @@
 import argparse
 import json
 
+from gendiff.formaters.formater_json import transform_diff
+from gendiff.formaters.formater_plain import process_changes
 from gendiff.formaters.stylish import format_diff
 from gendiff.scripts.file_parser import parser_file
 from gendiff.scripts.generate_diff1 import generate_dif
-from gendiff.formaters.formater_plain import process_changes
-from gendiff.formaters.formater_json import transform_diff
 
 
 def main():
@@ -19,7 +19,7 @@ def main():
     parser.add_argument("second_file", help="Второй файл для сравнения")
 
     # Опциональный аргумент для формата вывода (необязательный)
-    parser.add_argument("-f", "--format", help="Формат вывода", default="stylish" , choices=['stylish', 'plain', 'json'])
+    parser.add_argument("-f", "--format", help="Формат вывода", default="stylish", choices=['stylish', 'plain', 'json'])
 
     # Разбираем аргументы
     args = parser.parse_args()
@@ -37,14 +37,13 @@ def main():
             print(line)
     elif args.format == 'json':
         result1 = transform_diff(diff)
-        result = json.dumps(result1, indent = 4)
+        result = json.dumps(result1, indent=4)
         print(result)
 
     else:
         result = format_diff(diff)
         print(result)   
     
-
 
 if __name__ == "__main__":
     main()

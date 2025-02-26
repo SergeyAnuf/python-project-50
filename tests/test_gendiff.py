@@ -1,9 +1,10 @@
-import pytest
 import json
-from gendiff.scripts.generate_diff1 import generate_dif
-from gendiff.formaters.stylish import format_diff
-from gendiff.formaters.formater_plain import process_changes
+
 from gendiff.formaters.formater_json import transform_diff
+from gendiff.formaters.formater_plain import process_changes
+from gendiff.formaters.stylish import format_diff
+from gendiff.scripts.generate_diff1 import generate_dif
+
 
 def test_gendiff():
     file1_path = 'tests/fixtures/file3.json'
@@ -25,13 +26,16 @@ def test_gendiff():
         result1 = f1.read()
     
     file_result_plain = 'tests/fixtures/file_result_plain.txt'
+    result2 = []
     with open(file_result_plain, 'r') as f2:
-        result2 = f2.read()
-        
+        for line in f2:
+            result2.append(line.rstrip())
+
     file_result_json = 'tests/fixtures/result_test_json.txt'
+    result3 = {}
     with open(file_result_json, 'r') as f3:
         result3 = f3.read()
 
     assert result_stylish == result1
     assert result_plain == result2
-    assert result_json == result3
+    assert str(result_json) == result3
