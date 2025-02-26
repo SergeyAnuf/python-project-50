@@ -33,7 +33,7 @@ def main():
     file_1_dict, file_2_dict = parser_file(args.first_file, args.second_file)
 
     # Генерируем разницу
-    diff = generate_dif(file_1_dict, file_2_dict)
+    diff = generate_diff(file_1_dict, file_2_dict)
     
     # Форматируем разницу
     if args.format == 'plain':
