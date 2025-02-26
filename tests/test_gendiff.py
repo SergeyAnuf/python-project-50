@@ -14,7 +14,7 @@ def test_gendiff():
         file_2_dict = json.load(f2)
 
     # Generate diff
-    diff = generate_dif(file_1_dict, file_2_dict)
+    diff = generate_diff(file_1_dict, file_2_dict)
 
     # Test different formats
     result_stylish = format_diff(diff)

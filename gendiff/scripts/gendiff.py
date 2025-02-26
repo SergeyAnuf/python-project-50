@@ -5,7 +5,7 @@ from gendiff.formaters.formater_json import transform_diff
 from gendiff.formaters.formater_plain import process_changes
 from gendiff.formaters.stylish import format_diff
 from gendiff.scripts.file_parser import parser_file
-from gendiff.scripts.generate_diff import generate_dif
+from gendiff.scripts.generate_diff import generate_diff
 
 
 def main():
