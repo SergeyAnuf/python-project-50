@@ -1,4 +1,3 @@
-# from gendiff.scripts.generate_diff1 import generate_dif
 
 
 def format_diff(diff, depth=0, format_name='stylish'):

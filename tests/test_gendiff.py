@@ -3,7 +3,7 @@ import json
 from gendiff.formaters.formater_json import transform_diff
 from gendiff.formaters.formater_plain import process_changes
 from gendiff.formaters.stylish import format_diff
-from gendiff.scripts.generate_diff1 import generate_dif
+from gendiff.scripts.generate_diff import generate_dif
 
 
 def test_gendiff():
