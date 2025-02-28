@@ -21,7 +21,7 @@ def test_gendiff():
     result_plain = process_changes(diff)
     result_json = transform_diff(diff)
     
-    file_result = 'file_result.txt'
+    file_result = 'tests/fixtures/file_result.txt'
     with open(file_result, 'r') as f1:
         result1 = f1.read()
     
