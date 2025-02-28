@@ -2,19 +2,23 @@ import json
 
 import yaml
 
+def load_file(file_path):
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            if file_path.endswith('.json'):
+                return json.load(f)
+            elif file_path.endswith(('.yaml', '.yml')):
+                return yaml.safe_load(f)
+            else:
+                raise ValueError(f"Неподдерживаемый формат файла: {file_path}")
+    except FileNotFoundError:
+        print(f"Ошибка: Файл {file_path} не найден.")
+        return {}
+    except (json.JSONDecodeError, yaml.YAMLError):
+        print(f"Ошибка: Файл {file_path} содержит некорректные данные.")
+        return {}
 
 def parser_file(file1_path, file2_path):
-    try:
-        with open(file1_path) as f1, open(file2_path) as f2:
-            if (file1_path.endswith('json') 
-            and file2_path.endswith('json')):
-                file_1_dict = json.load(f1)
-                file_2_dict = json.load(f2)
-            elif (file1_path.endswith('yaml' or 'yml') 
-            and file2_path.endswith('yaml' or 'yml')):
-                file_1_dict = yaml.safe_load(f1)
-                file_2_dict = yaml.safe_load(f2)
-        return file_1_dict, file_2_dict
-    except FileNotFoundError as e:
-        print(f"Ошибка: {e}")
-        return {}, {}
+    file_1_dict = load_file(file1_path)
+    file_2_dict = load_file(file2_path)
+    return file_1_dict, file_2_dict
