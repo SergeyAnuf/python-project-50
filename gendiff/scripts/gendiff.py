@@ -31,6 +31,7 @@ def main():
 
     # Загружаем файлы
     file_1_dict, file_2_dict = parser_file(args.first_file, args.second_file)
+    print(type(file_2_dict))
 
     # Генерируем разницу
     diff = generate_diff(file_1_dict, file_2_dict)

@@ -2,6 +2,7 @@ import json
 
 import yaml
 
+
 def load_file(file_path):
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -17,6 +18,7 @@ def load_file(file_path):
     except (json.JSONDecodeError, yaml.YAMLError):
         print(f"Ошибка: Файл {file_path} содержит некорректные данные.")
         return {}
+
 
 def parser_file(file1_path, file2_path):
     file_1_dict = load_file(file1_path)
