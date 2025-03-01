@@ -4,14 +4,13 @@ from gendiff.formaters.formater_json import transform_diff
 from gendiff.formaters.formater_plain import process_changes
 from gendiff.formaters.stylish import format_diff
 from gendiff.scripts.generate_diff import generate_diff
+from gendiff.scripts.file_parser import parser_file
 
 
 def test_gendiff():
     file1_path = 'tests/fixtures/file3.json'
     file2_path = 'tests/fixtures/file4.json'
-    with open(file1_path) as f1, open(file2_path) as f2:
-        file_1_dict = json.load(f1)
-        file_2_dict = json.load(f2)
+    file_1_dict, file_2_dict = parser_file(file1_path, file2_path)
 
     # Generate diff
     diff = generate_diff(file_1_dict, file_2_dict)
