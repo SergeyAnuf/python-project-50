@@ -30,11 +30,10 @@ def main():
     args = parser.parse_args()
 
     # Загружаем файлы
-    file_1_dict, file_2_dict = parser_file(args.first_file, args.second_file)
-    print(type(file_2_dict))
+    #file_1_dict, file_2_dict = parser_file(args.first_file, args.second_file)
 
     # Генерируем разницу
-    diff = generate_diff(file_1_dict, file_2_dict)
+    diff = generate_diff(args.first_file, args.second_file)
     
     # Форматируем разницу
     if args.format == 'plain':

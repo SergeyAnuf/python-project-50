@@ -10,10 +10,9 @@ from gendiff.scripts.file_parser import parser_file
 def test_gendiff():
     file1_path = 'tests/fixtures/file3.json'
     file2_path = 'tests/fixtures/file4.json'
-    file_1_dict, file_2_dict = parser_file(file1_path, file2_path)
 
     # Generate diff
-    diff = generate_diff(file_1_dict, file_2_dict)
+    diff = generate_diff(file1_path, file2_path)
 
     # Test different formats
     result_stylish = format_diff(diff)

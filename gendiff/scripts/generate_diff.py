@@ -1,4 +1,8 @@
-def generate_diff(file_1_dict, file_2_dict):
+from gendiff.scripts.file_parser import parser_file
+
+
+def generate_diff(file1_path, file2_path):
+    file_1_dict, file_2_dict = parser_file(file1_path, file2_path)
     diff = {}
     for key, value in file_2_dict.items():
         if key in file_1_dict:
