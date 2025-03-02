@@ -22,9 +22,15 @@ def test_gendiff():
     with open('tests/fixtures/file_result_plain.txt', 'r') as f2:
         expected_plain = f2.read().strip()
 
-    with open('tests/fixtures/result_test_json.txt', 'r') as f3:
+    with open('tests/fixtures/result_test_json.txt', 'r', encoding='utf-8') as f3:
         expected_json = json.loads(f3.read().strip())
+    print("\n".join(result_plain))
+    print("----")
+    print(expected_plain)
+    print(json.dumps(result_json, indent=4))  # Вывод актуального JSON
+    print("----")
+    print(json.dumps(expected_json, indent=4))  # Вывод эталонного JSON
 
     assert result_stylish == expected_stylish
-    assert result_plain == expected_plain
+    assert "\n".join(result_plain) == expected_plain
     assert result_json == expected_json
