@@ -1,39 +1,43 @@
-import json
+import pytest
 
-from gendiff import generate_diff
-from gendiff.formaters.formater_json import transform_diff
-from gendiff.formaters.formater_plain import process_changes
-from gendiff.formaters.stylish import format_diff
+from gendiff.scripts.generate_diff import generate_diff
+from gendiff.scripts.parser import read_file
 
 
-def test_gendiff_json():
-    file1_path = 'tests/fixtures/file3.json'
-    file2_path = 'tests/fixtures/file4.json'
-    check_diff(file1_path, file2_path)
+@pytest.mark.parametrize('file_path1, file_path2, expected_result', [
+    ('tests/test_data/file1.json',
+     'tests/test_data/file2.json',
+     'tests/test_data/expected_result_json.txt'),
+    ('tests/test_data/file1.yaml',
+     'tests/test_data/file2.yaml',
+     'tests/test_data/expected_result_yaml.txt')])
+def test_generate_diff(file_path1, file_path2, expected_result):
+    diff = generate_diff(file_path1, file_path2)
+    expected = read_file(expected_result).strip()
+    assert diff.strip() == expected
 
 
-def test_gendiff_yaml():
-    file1_path = 'tests/fixtures/file3.yaml'
-    file2_path = 'tests/fixtures/file4.yaml'
-    check_diff(file1_path, file2_path)
+@pytest.mark.parametrize('file_path1, file_path2, expected_result', [
+    ('tests/test_data/file1.json',
+     'tests/test_data/file2.json',
+     'tests/test_data/expected_result_plain.txt'),
+    ('tests/test_data/file1.yaml',
+     'tests/test_data/file2.yaml',
+     'tests/test_data/expected_result_plain.txt')])
+def test_generate_diff_plain(file_path1, file_path2, expected_result):
+    diff = generate_diff(file_path1, file_path2, formatter="plain")
+    expected = read_file(expected_result).strip()
+    assert diff.strip() == expected
 
 
-def check_diff(file1_path, file2_path):
-    diff = generate_diff(file1_path, file2_path)
-
-    result_stylish = format_diff(diff)
-    result_plain = process_changes(diff)
-    result_json = transform_diff(diff)
-
-    with open('tests/fixtures/file_result.txt', 'r') as f1:
-        expected_stylish = f1.read().strip()
-
-    with open('tests/fixtures/file_result_plain.txt', 'r') as f2:
-        expected_plain = f2.read().strip()
-
-    with open('tests/fixtures/result_test_json.txt', 'r', encoding='utf-8') as f3:
-        expected_json = json.load(f3)
-
-    assert result_stylish == expected_stylish
-    assert "\n".join(result_plain) == expected_plain
-    assert result_json == expected_json
+@pytest.mark.parametrize('file_path1, file_path2, expected_result', [
+    ('tests/test_data/file1.json',
+     'tests/test_data/file2.json',
+     'tests/test_data/expected_result_json_format.txt'),
+    ('tests/test_data/file1.yaml',
+     'tests/test_data/file2.yaml',
+     'tests/test_data/expected_result_json_format.txt')])
+def test_generate_diff_json(file_path1, file_path2, expected_result):
+    diff = generate_diff(file_path1, file_path2, formatter="json")
+    expected = read_file(expected_result).strip()
+    assert diff.strip() == expected
