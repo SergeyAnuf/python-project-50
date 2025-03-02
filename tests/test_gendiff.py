@@ -4,37 +4,27 @@ from gendiff.formaters.formater_json import transform_diff
 from gendiff.formaters.formater_plain import process_changes
 from gendiff.formaters.stylish import format_diff
 from gendiff.scripts.generate_diff import generate_diff
-from gendiff.scripts.file_parser import parser_file
 
 
 def test_gendiff():
     file1_path = 'tests/fixtures/file3.json'
     file2_path = 'tests/fixtures/file4.json'
-    file_1_dict, file_2_dict = parser_file(file1_path, file2_path)
 
-    # Generate diff
-    diff = generate_diff(file_1_dict, file_2_dict)
+    diff = generate_diff(file1_path, file2_path)
 
-    # Test different formats
     result_stylish = format_diff(diff)
     result_plain = process_changes(diff)
     result_json = transform_diff(diff)
-    
-    file_result = 'tests/fixtures/file_result.txt'
-    with open(file_result, 'r') as f1:
-        result1 = f1.read()
-    
-    file_result_plain = 'tests/fixtures/file_result_plain.txt'
-    result2 = []
-    with open(file_result_plain, 'r') as f2:
-        for line in f2:
-            result2.append(line.rstrip())
 
-    file_result_json = 'tests/fixtures/result_test_json.txt'
-    result3 = {}
-    with open(file_result_json, 'r') as f3:
-        result3 = f3.read()
+    with open('tests/fixtures/file_result.txt', 'r') as f1:
+        expected_stylish = f1.read().strip()
 
-    assert result_stylish == result1
-    assert result_plain == result2
-    assert str(result_json) == result3
+    with open('tests/fixtures/file_result_plain.txt', 'r') as f2:
+        expected_plain = f2.read().strip()
+
+    with open('tests/fixtures/result_test_json.txt', 'r') as f3:
+        expected_json = json.loads(f3.read().strip())
+
+    assert result_stylish == expected_stylish
+    assert result_plain == expected_plain
+    assert result_json == expected_json

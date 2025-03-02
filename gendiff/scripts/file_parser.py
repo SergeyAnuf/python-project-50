@@ -1,5 +1,6 @@
-import yaml
 import json
+
+import yaml
 
 
 def load_file(file_path):
